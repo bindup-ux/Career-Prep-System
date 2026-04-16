@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interview Practice</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #1abc9c);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f5f7fa;
+            border-radius: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-top: 8px;
+            resize: none;
+            font-family: inherit;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #1abc9c;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 20px;
+            background: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #16a085;
+        }
+
+        .no-data {
+            text-align: center;
+            color: red;
+        }
+
+        .tips {
+            margin-top: 25px;
+            padding: 15px;
+            background: #ecf9f6;
+            border-radius: 8px;
+        }
+
+        .tips h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .tips a {
+            color: #1abc9c;
+            text-decoration: none;
+        }
+
+        .tips a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>💼 Interview Practice</h2>
+
+<form method="POST" action="/evaluation">
+
+{% if questions and questions|length > 0 %}
+
+    {% for q in questions %}
+        <div class="question">
+            <b>{{ q }}</b>
+            <textarea name="answers" rows="3" placeholder="Write your answer..."></textarea>
+        </div>
+    {% endfor %}
+
+    <button type="submit">Submit Answers</button>
+
+{% else %}
+    <p class="no-data">No questions available. Please upload resume first.</p>
+{% endif %}
+
+</form>
+
+<!-- Extra section (placement boost) -->
+<div class="tips">
+    <h3>🚀 Improve Your Chances</h3>
+    <ul>
+        <li><a href="https://www.hackerrank.com/" target="_blank">Practice on HackerRank</a> — widely used by companies</li>
+        <li><a href="https://leetcode.com/" target="_blank">Practice on LeetCode</a> — improves problem solving</li>
+        <li><a href="https://www.geeksforgeeks.org/" target="_blank">Learn from GeeksforGeeks</a> — strong concepts</li>
+    </ul>
+
+    <p><b>Tip:</b> Regular practice increases your chances of getting shortlisted.</p>
+</div>
+
+</div>
+
+</body>
+</html>

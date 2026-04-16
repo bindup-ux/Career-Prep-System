@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluation</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1f4037, #99f2c8);
+            margin: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 60px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .total {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+            margin: 20px 0;
+            color: #1abc9c;
+        }
+
+        .result {
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background: #f5f7fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .good {
+            color: green;
+            font-weight: bold;
+        }
+
+        .bad {
+            color: red;
+            font-weight: bold;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            color: #2c3e50;
+        }
+
+        .btn {
+            display: block;
+            width: 200px;
+            margin: 25px auto 0;
+            padding: 12px;
+            background: #1abc9c;
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #16a085;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>📊 Performance Analysis</h2>
+
+    {% if results and results|length > 0 %}
+
+        <div class="total">Total Score: {{ total }}</div>
+
+        {% for r in results %}
+            <div class="result">
+                <span>Score: {{ r.score }}</span>
+                
+                {% if r.fb == "Good 👍" %}
+                    <span class="good">{{ r.fb }}</span>
+                {% else %}
+                    <span class="bad">{{ r.fb }}</span>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <p class="message">
+            🚀 Keep practicing to improve your interview performance!
+        </p>
+
+        <a href="/qa" class="btn">Practice Again</a>
+
+    {% else %}
+        <p style="text-align:center;">No evaluation yet. Please answer questions first.</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
